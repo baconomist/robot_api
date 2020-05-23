@@ -7,20 +7,15 @@ set(DCMAKE_SH="CMAKE_SH-NOTFOUND")
 cmake_minimum_required(VERSION ${VERSION})
 project(RobotAPI CXX C)
 
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
-# https://docs.microsoft.com/en-us/cpp/build/reference/compiler-option-warning-level?view=vs-2019
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall")
-
 file(GLOB SOURCES "src/*.c" "src/*.h" "src/*.cpp" "src/*.hpp")
 
-include_directories(RobotAPI "${CMAKE_CURRENT_SOURCE_DIR}/../include" "${CMAKE_CURRENT_SOURCE_DIR}/../shared_api/include")
+# Include PROS headers
+include_directories(RobotAPI "${CMAKE_CURRENT_SOURCE_DIR}/../include")
 # Build RobotAPI as library
 add_library(RobotAPI STATIC ${SOURCES} ${CMAKE_CURRENT_SOURCE_DIR})
-# Include SharedAPI
+# Include SharedAPI and Robot
 target_link_libraries(RobotAPI SharedAPI)
-# Expose include/ to any cmake project that imports RobotAPI
-target_include_directories(RobotAPI PUBLIC include/)
+target_link_libraries(RobotAPI Robot)
 
 # https://stackoverflow.com/questions/28597351/how-do-i-add-a-library-path-in-cmake
 # https://stackoverflow.com/questions/38858275/how-to-import-a-file-to-cmake-in-c
