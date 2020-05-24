@@ -16,9 +16,7 @@ add_library(RobotAPI STATIC ${SOURCES} ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Include SharedAPI and Robot
 # Include SharedAPI
-find_library(RobotAPI SharedAPI)
 target_link_libraries(RobotAPI SharedAPI)
-find_library(RobotAPI Robot)
 target_link_libraries(RobotAPI Robot)
 
 # https://stackoverflow.com/questions/28597351/how-do-i-add-a-library-path-in-cmake
