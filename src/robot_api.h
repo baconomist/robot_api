@@ -1,8 +1,6 @@
 //
-// Created by Lucas on 2020-05-22.
+// Created by Lucas on 2020-05-23.
 //
 
-// Used so PROS can link robot_api.cpp to project
+// Keep this header file for the PROS_BUILD robot include
 #pragma once
-
-#include "shared_robot_api.hpp"
