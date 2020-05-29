@@ -5,7 +5,7 @@
 #include <iostream>
 #include "logging.h"
 
-namespace logging
+namespace shared_api::logging
 {
     void info(const std::string &message)
     {
