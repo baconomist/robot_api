@@ -7,7 +7,7 @@ set(DCMAKE_SH="CMAKE_SH-NOTFOUND")
 cmake_minimum_required(VERSION ${VERSION})
 project(RobotAPI CXX C)
 
-file(GLOB SOURCES "src/*.c" "src/*.h" "src/*.cpp" "src/*.hpp")
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c" "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 # Include PROS headers
 include_directories(RobotAPI "${CMAKE_CURRENT_SOURCE_DIR}/../include")
