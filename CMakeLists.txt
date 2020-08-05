@@ -26,3 +26,8 @@ target_link_libraries(RobotAPI exec "${CMAKE_CURRENT_SOURCE_DIR}/../firmware/lib
 target_link_libraries(RobotAPI exec "${CMAKE_CURRENT_SOURCE_DIR}/../firmware/okapilib.a")
 target_link_libraries(RobotAPI exec "${CMAKE_CURRENT_SOURCE_DIR}/../firmware/libm.a")
 target_link_libraries(RobotAPI exec "${CMAKE_CURRENT_SOURCE_DIR}/../firmware/libc.a")
+
+# Remove prefix
+set_target_properties(RobotAPI PROPERTIES PREFIX "")
+# Change DLL filename
+set_target_properties(RobotAPI PROPERTIES OUTPUT_NAME "libRobotAPI")
